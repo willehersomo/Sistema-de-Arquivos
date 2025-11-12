@@ -177,7 +177,7 @@ void escrever_inode(SISTEMA_ARQUIVOS* fs, int num_inode, INODE *inode)
     long int deslocamento = num_inode * sizeof(INODE);
     
     if (fseek(fs->arquivo_inodes, deslocamento, SEEK_SET) != 0) {
-        perror("Erro fseek escrever_inode");
+        printf("Erro fseek escrever_inode");
     } else {
         fwrite(inode, sizeof(INODE), 1, fs->arquivo_inodes);
     }
@@ -211,14 +211,14 @@ void* ler_bloco(SISTEMA_ARQUIVOS* fs, int num_bloco)
     long int deslocamento;
     void* buffer = malloc(fs->super_bloco_info.tamanho_bloco);
     if (buffer == NULL) {
-        perror("Erro ao alocar memoria para ler bloco");
+        orintf("Erro ao alocar memoria para ler bloco");
         return NULL;
     }
     
     deslocamento = num_bloco * fs->super_bloco_info.tamanho_bloco;
 
     if (fseek(fs->arquivo_blocos, deslocamento, SEEK_SET) != 0) {
-        perror("Erro fseek ler_bloco");
+        printf("Erro fseek ler_bloco");
         free(buffer);
 
         return NULL;
