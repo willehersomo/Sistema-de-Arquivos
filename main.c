@@ -181,7 +181,7 @@ int main()
 
     if (fs != NULL)
     {
-        printf("Sistema de arquivos 'BrenimFS' montado. Bem-vindo, %s!\n", nome_buffer); // Corrigido aqui
+        printf("Sistema de arquivos 'BrenimFS' montado. Bem-vindo, %s!\n", nome_buffer); 
 
         processar_loop_shell(fs, nome_buffer);
 
